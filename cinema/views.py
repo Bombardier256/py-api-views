@@ -72,9 +72,9 @@ class GenreDetail(APIView):
 
 
 class ActorList(
-   mixins.ListModelMixin,
-   mixins.CreateModelMixin,
-   generics.GenericAPIView
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    generics.GenericAPIView
 ):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
@@ -87,13 +87,14 @@ class ActorList(
 
 
 class ActorDetail(
-   mixins.RetrieveModelMixin,
-   mixins.UpdateModelMixin,
-   mixins.DestroyModelMixin,
-   generics.GenericAPIView
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    generics.GenericAPIView
 ):
     queryset = Actor.objects.all()
     serializer_class = ActorSerializer
+
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
 
@@ -108,12 +109,12 @@ class ActorDetail(
 
 
 class CinemaHallViewSet(
-   mixins.ListModelMixin,
-   mixins.CreateModelMixin,
-   mixins.RetrieveModelMixin,
-   mixins.UpdateModelMixin,
-   mixins.DestroyModelMixin,
-   viewsets.GenericViewSet
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet
 ):
     queryset = CinemaHall.objects.all()
     serializer_class = CinemaHallSerializer
